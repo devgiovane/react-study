@@ -1,0 +1,33 @@
+{
+    "name": "study",
+    "version": "1.0.0",
+    "description": "Study",
+    "main": "index.js",
+    "author": "Giovane Santos <giovanesantos1999@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "webpack serve --env mode=development",
+        "build": "yarn clean && webpack --env mode=production && yarn size",
+        "clean": "rm -rf dist/",
+        "size": "du -hs dist/"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@babel/core": "^7.17.10",
+        "@babel/preset-env": "^7.17.10",
+        "@babel/preset-react": "^7.16.7",
+        "babel-loader": "^9.1.0",
+        "css-loader": "^6.7.1",
+        "html-webpack-plugin": "^5.5.0",
+        "mini-css-extract-plugin": "^2.6.0",
+        "react-router-dom": "^6.4.1",
+        "style-loader": "^3.3.1",
+        "webpack": "^5.72.1",
+        "webpack-cli": "^4.9.2",
+        "webpack-dev-server": "^4.9.0"
+    }
+}

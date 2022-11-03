@@ -1,0 +1,12 @@
+node_modules/
+# IDE's
+.idea/
+.vscode/
+.DS_Store
+# Build's
+dist/
+build/
+deploy.sh
+# Environment's
+.env
+.env.*
