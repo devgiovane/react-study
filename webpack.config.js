@@ -53,7 +53,6 @@ module.exports = ({ mode }) => {
                 },
                 {
                     test: /\.[s]?css$/i,
-                    exclude: /node_modules/,
                     use: [
                         {
                             loader: isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader
