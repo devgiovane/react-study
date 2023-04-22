@@ -21,6 +21,9 @@ module.exports = ({ mode }) => {
             hot: true,
             open: true,
             allowedHosts: 'all',
+            client: {
+                reconnect: 5
+            }
         },
         resolve: {
             extensions: ['.js', '.jsx', '.json'],
@@ -69,6 +72,9 @@ module.exports = ({ mode }) => {
                                     localIdentName: '_[name]__[local]--[hash:base64:12]'
                                 }
                             }
+                        },
+                        {
+                            loader: "postcss-loader"
                         }
                     ]
                 },
