@@ -1,11 +1,23 @@
 import { useAuth } from "~@Contexts/auth";
+import { Button } from "~@Components/Button";
+import { Input } from "~@Components/Input";
 
 export function Auth() {
     const { setToken } = useAuth();
     return(
-        <div>
-            Auth
-            <button onClick={() => setToken('cc50bb4f-7a05-4715-977b-2e22be1a3db0')}>Login</button>
-        </div>
+        <section>
+            <form>
+                <fieldset>
+                    <legend>Login</legend>
+                    <p>
+                        <Input />
+                    </p>
+                    <p>
+                        <Input />
+                    </p>
+                    <Button text='Login' handleClick={() => setToken('token')}/>
+                </fieldset>
+            </form>
+        </section>
     )
 }

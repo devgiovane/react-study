@@ -9,4 +9,3 @@ build/
 deploy.sh
 # Environment's
 .env
-.env.*

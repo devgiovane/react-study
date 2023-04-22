@@ -2,12 +2,12 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 
 import * as StorageService from "~@Services/storage";
 
-type AuthContextProps = {
+type AuthContextType = {
     token: string|null,
     setToken(token: string): void
 }
 
-const AuthContext = createContext<AuthContextProps>({
+const AuthContext = createContext<AuthContextType>({
     token: null,
     setToken() { }
 });
