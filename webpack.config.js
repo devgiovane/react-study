@@ -1,6 +1,7 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
+const DotenvPlugin = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = ({ mode }) => {
@@ -24,13 +25,16 @@ module.exports = ({ mode }) => {
         resolve: {
             extensions: ['.js', '.jsx', '.json'],
             alias: {
+                '~@Contexts': path.resolve(__dirname, 'src', 'contexts'),
                 '~@Pages': path.resolve(__dirname, 'src', 'pages'),
                 '~@Components': path.resolve(__dirname, 'src', 'components'),
                 '~@Services': path.resolve(__dirname, 'src', 'services'),
-                '~@Contexts': path.resolve(__dirname, 'src', 'contexts'),
             }
         },
         plugins: [
+            new DotenvPlugin({
+               safe: true
+            }),
             new ProvidePlugin({
                 React: 'react'
             }),
@@ -45,14 +49,14 @@ module.exports = ({ mode }) => {
         module: {
             rules: [
                 {
-                    test: /\.js[x]?$/i,
+                    test: /\.(js|jsx)$/i,
                     exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader'
                     }
                 },
                 {
-                    test: /\.[s]?css$/i,
+                    test: /\.css$/i,
                     use: [
                         {
                             loader: isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader
