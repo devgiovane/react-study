@@ -9,8 +9,9 @@ module.exports = ({ mode }) => {
     const isDevelopment = mode !== 'production';
     return {
         mode: mode,
+        target: isDevelopment ? 'web' : 'browserslist',
         devtool: isDevelopment ? 'source-map' : 'eval-source-map',
-        entry: path.resolve(__dirname, 'src', 'index.jsx'),
+        entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: isDevelopment ? '[name].bundle.js' : `static/js/_[name].[${hash}].bundle.js`,
@@ -26,8 +27,9 @@ module.exports = ({ mode }) => {
             }
         },
         resolve: {
-            extensions: ['.js', '.jsx', '.json'],
+            extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
             alias: {
+                '~@Adapters': path.resolve(__dirname, 'src', 'adapters'),
                 '~@Contexts': path.resolve(__dirname, 'src', 'contexts'),
                 '~@Pages': path.resolve(__dirname, 'src', 'pages'),
                 '~@Components': path.resolve(__dirname, 'src', 'components'),
@@ -52,7 +54,7 @@ module.exports = ({ mode }) => {
         module: {
             rules: [
                 {
-                    test: /\.(js|jsx)$/i,
+                    test: /\.(js|jsx|ts|tsx)$/i,
                     exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader'

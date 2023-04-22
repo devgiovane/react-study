@@ -1,18 +1,28 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
 
-import { StorageService } from "~@Services/storage";
+import * as StorageService from "~@Services/storage";
 
-const AuthContext = createContext({
-    token: null
+type AuthContextProps = {
+    token: string|null,
+    setToken(token: string): void
+}
+
+const AuthContext = createContext<AuthContextProps>({
+    token: null,
+    setToken() { }
 });
 
 export function useAuth() {
     return useContext(AuthContext);
 }
 
-export function AuthProvider({ children }) {
+type AuthProviderProps = {
+    children: ReactNode
+}
+
+export function AuthProvider({ children }: AuthProviderProps) {
     const [ token, setToken ] = useState(StorageService.get('token'));
-    function setNewToken(token) {
+    function setNewToken(token: string) {
         setToken(token);
         if (token) {
             StorageService.set('token', token);

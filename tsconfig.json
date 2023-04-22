@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "esnext",
+        "target": "es5",
+        "jsx": "react-jsx",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "~@Adapters/*": [
+                "./src/adapters/*"
+            ],
+            "~@Components/*": [
+                "./src/components/*"
+            ],
+            "~@Pages/*": [
+                "./src/pages/*"
+            ],
+            "~@Services/*": [
+                "./src/services/*"
+            ],
+            "~@Contexts/*": [
+                "./src/contexts/*"
+            ]
+        }
+    }
+}
