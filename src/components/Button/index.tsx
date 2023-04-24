@@ -5,7 +5,7 @@ type ButtonProps = {
 
 export function Button({ text, handleClick }: ButtonProps) {
     return (
-        <button onClick={handleClick}>
+        <button type='button' onClick={handleClick}>
             {text}
         </button>
     )
