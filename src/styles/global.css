@@ -5,13 +5,6 @@
     box-sizing: border-box;
 }
 
-:root {
-    --color-dark: #1B1B20;
-    --color-green: #28F5BE;
-    --color-purple: #4C388B;
-    --color-gray: #737380;
-}
-
 html,
 body {
     width: 100%;
@@ -22,5 +15,4 @@ body {
 #root {
     width: 100%;
     min-height: 100vh;
-    background-color: var(--color-dark);
 }

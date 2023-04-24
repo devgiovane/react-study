@@ -1,3 +1,6 @@
+// @ts-ignore
+import Logo from '../../assets/logo.svg';
+
 import { useAuth } from "~@Contexts/auth";
 
 import { Button } from "~@Components/Button";
@@ -19,17 +22,17 @@ export function Auth() {
         }
     }
     return(
-        <section>
-            <form>
+        <section className='flex justify-center pt-32'>
+            <form className='w-8/12 sm:w-6/12 md:w-4/12 xl:w-3/12'>
                 <fieldset>
-                    <legend>Login</legend>
-                    <p>
-                        <Input />
+                    <img src={Logo} alt='Pekemon Logo' className='mb-6' />
+                    <p className='mb-4'>
+                        <Input type='text' placeholder='Enter you e-mail' />
                     </p>
-                    <p>
-                        <Input />
+                    <p className='mb-4'>
+                        <Input type='password' placeholder='Enter you password' />
                     </p>
-                    <Button text='Login' handleClick={login}/>
+                    <Button text='LOGIN' handleClick={login}/>
                 </fieldset>
             </form>
         </section>
