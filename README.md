@@ -8,6 +8,8 @@
 
 - React.js 18
 - React Router 6
+- Firebase 9
+- Tailwind CSS 3
 
 ### Commands
 
