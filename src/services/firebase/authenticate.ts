@@ -1,8 +1,13 @@
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, User } from "firebase/auth";
+import {
+    getAuth, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut,
+    User, GoogleAuthProvider
+} from "firebase/auth";
 
 import { firebase } from '~@Services/firebase';
 
-export async function loginWith(email: string, password: string): Promise<User> {
+export interface UserType extends User { }
+
+export async function loginWith(email: string, password: string): Promise<UserType> {
     try {
         const auth = getAuth(firebase);
         const credential = await signInWithEmailAndPassword(auth, email, password);
@@ -12,7 +17,18 @@ export async function loginWith(email: string, password: string): Promise<User> 
     }
 }
 
-export async function createUserWith(email: string, password: string): Promise<User> {
+export async function loginWithGoogle(): Promise<UserType> {
+    try {
+        const auth = getAuth(firebase);
+        const provider = new GoogleAuthProvider();
+        const credential = await signInWithPopup(auth, provider);
+        return credential.user;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function createUserWith(email: string, password: string): Promise<UserType> {
     try {
         const auth = getAuth(firebase);
         const created = await createUserWithEmailAndPassword(auth, email, password);
