@@ -30,9 +30,10 @@ module.exports = ({ mode }) => {
             extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
             alias: {
                 '~@Adapters': path.resolve(__dirname, 'src', 'adapters'),
+                '~@Assets': path.resolve(__dirname, 'src', 'assets'),
+                '~@Components': path.resolve(__dirname, 'src', 'components'),
                 '~@Contexts': path.resolve(__dirname, 'src', 'contexts'),
                 '~@Pages': path.resolve(__dirname, 'src', 'pages'),
-                '~@Components': path.resolve(__dirname, 'src', 'components'),
                 '~@Services': path.resolve(__dirname, 'src', 'services'),
             }
         },

@@ -12,20 +12,23 @@
         "typeRoots": ["./node_modules/@types", "./src/@types"],
         "baseUrl": ".",
         "paths": {
+            "~@Assets/*": [
+                "./src/assets/*"
+            ],
             "~@Adapters/*": [
                 "./src/adapters/*"
             ],
             "~@Components/*": [
                 "./src/components/*"
             ],
+            "~@Contexts/*": [
+                "./src/contexts/*"
+            ],
             "~@Pages/*": [
                 "./src/pages/*"
             ],
             "~@Services/*": [
                 "./src/services/*"
-            ],
-            "~@Contexts/*": [
-                "./src/contexts/*"
             ]
         }
     }

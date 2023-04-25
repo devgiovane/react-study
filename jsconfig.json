@@ -2,17 +2,23 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
+            "~@Adapters/*": [
+                "./src/adapters/*"
+            ],
+            "~@Assets/*": [
+                "./src/assets/*"
+            ],
             "~@Components/*": [
                 "./src/components/*"
+            ],
+            "~@Contexts/*": [
+                "./src/contexts/*"
             ],
             "~@Pages/*": [
                 "./src/pages/*"
             ],
             "~@Services/*": [
                 "./src/services/*"
-            ],
-            "~@Contexts/*": [
-                "./src/contexts/*"
             ]
         }
     }
