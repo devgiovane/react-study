@@ -43,7 +43,7 @@ module.exports = ({ mode }) => {
                safe: true
             }),
             new ProvidePlugin({
-                React: 'react'
+                React: 'react',
             }),
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, 'public', 'index.html'),

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-interface TitleProps {
+type TitleProps = {
     text: string
 }
 

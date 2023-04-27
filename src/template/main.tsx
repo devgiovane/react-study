@@ -6,7 +6,7 @@ type MainProps = {
 
 export function Main({ children }: MainProps) {
     return(
-        <main className='container pt-24'>
+        <main>
             {children}
         </main>
     );

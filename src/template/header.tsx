@@ -12,7 +12,7 @@ export const Header = memo(function () {
         <header
             className={separate([
                 "flex justify-between items-center",
-                "w-full h-20 py-2 px-36 bg-gray-800 shadow-lg shadow-gray-900 fixed"
+                "w-full h-20 py-2 px-36 bg-gray-800 shadow-lg shadow-gray-900 fixed top-0"
             ])}
         >
             <h1 className='text-white text-3xl'>Pokemon</h1>

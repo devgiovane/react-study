@@ -2,9 +2,9 @@ import { forwardRef, HTMLAttributes, InputHTMLAttributes, LabelHTMLAttributes, R
 
 import { clsx, separate } from "~@Services/classname";
 
-interface RootProps {
+type RootProps = {
     children: ReactNode
-}
+} & HTMLAttributes<HTMLElement>;
 
 export function Root({ children }: RootProps) {
     return(
@@ -14,9 +14,9 @@ export function Root({ children }: RootProps) {
     )
 }
 
-interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+type LabelProps = {
     text: string
-}
+} & LabelHTMLAttributes<HTMLLabelElement>;
 
 export function Label({ text, ...rest }: LabelProps) {
     return(
@@ -29,9 +29,9 @@ export function Label({ text, ...rest }: LabelProps) {
     );
 }
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+type InputProps = {
     invalid?: boolean
-}
+} & InputHTMLAttributes<HTMLInputElement>;
 
 export const Field = forwardRef<HTMLInputElement, InputProps>(function (props, ref) {
     const { invalid, ...rest } = props;
@@ -50,9 +50,9 @@ export const Field = forwardRef<HTMLInputElement, InputProps>(function (props, r
     );
 });
 
-interface ErrorProps extends  HTMLAttributes<HTMLElement> {
+type ErrorProps = {
     text: string
-}
+} & HTMLAttributes<HTMLElement>;
 
 export function Error({ text, ...rest }: ErrorProps) {
     return (
