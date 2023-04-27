@@ -35,6 +35,7 @@ module.exports = ({ mode }) => {
                 '~@Contexts': path.resolve(__dirname, 'src', 'contexts'),
                 '~@Pages': path.resolve(__dirname, 'src', 'pages'),
                 '~@Services': path.resolve(__dirname, 'src', 'services'),
+                '~@Template': path.resolve(__dirname, 'src', 'template'),
             }
         },
         plugins: [

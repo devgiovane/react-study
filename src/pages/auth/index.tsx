@@ -1,5 +1,6 @@
 import Logo from '~@Assets/logo.svg';
 import GoogleLogo from '~@Assets/google.svg';
+
 import { useRef, useReducer, FormEvent } from "react";
 
 import { useAuth } from "~@Contexts/auth";
@@ -24,7 +25,9 @@ export function Auth() {
             setObject('user', user);
             setToken(user.uid);
         } catch (error) {
-            dispatch({ type: LoginActionKind.SET_ERROR, payload: 'Password or e-mail invalid!' });
+            dispatch({
+                type: LoginActionKind.SET_ERROR, payload: 'Password or e-mail invalid!'
+            });
         } finally {
             dispatch({ type: LoginActionKind.SET_LOADING });
         }
@@ -36,7 +39,9 @@ export function Auth() {
             setObject('user', user);
             setToken(user.uid);
         } catch (error) {
-            dispatch({ type: LoginActionKind.SET_ERROR, payload: 'Error in login with google!' });
+            dispatch({
+                type: LoginActionKind.SET_ERROR, payload: 'Error in login with google!'
+            });
         }
     }
 
@@ -64,7 +69,10 @@ export function Auth() {
             >
                 <fieldset>
                     <legend className='sr-only'>Login</legend>
-                    <img src={Logo} alt='Pekemon Logo' className='mb-6 w-full' />
+                    <img src={Logo} alt='Pekemon' className='mb-6 w-full' />
+                    <p className='text-pink-50 text-center mb-4'>
+                        Log in to enter pokemon world.
+                    </p>
                     <Input.Root>
                         <Input.Label htmlFor='email' text='E-mail' />
                         <Input.Field

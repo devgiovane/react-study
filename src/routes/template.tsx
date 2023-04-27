@@ -1,22 +1,19 @@
 import { Suspense } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
+import { Header } from "~@Template/header";
+import { Main } from "~@Template/main";
 
 export function Template() {
     return (
         <>
-            <header>
-                <h1>Welcome to the app!</h1>
-            </header>
-            <nav>
-                <Link to="/">Home</Link> |{" "}
-                <Link to="list">List</Link>
-            </nav>
-            <main className="content">
+            <Header />
+            <Main>
                 <Suspense fallback={<>Loading...</>}>
                     <Outlet />
                 </Suspense>
-            </main>
-            <footer>
+            </Main>
+            <footer className='text-gray-400'>
                 Footer
             </footer>
         </>

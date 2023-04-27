@@ -19,6 +19,9 @@
             ],
             "~@Services/*": [
                 "./src/services/*"
+            ],
+            "~@Template/*": [
+                "./src/template/*"
             ]
         }
     }
