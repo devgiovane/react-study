@@ -46,8 +46,10 @@ module.exports = ({ mode }) => {
                 React: 'react',
             }),
             new HtmlWebpackPlugin({
+                minify: !isDevelopment,
+                title: "Pokemon | Have fun knowing the world of pokemon",
                 template: path.resolve(__dirname, 'public', 'index.html'),
-                favicon: path.resolve(__dirname, 'public', 'favicon.png')
+                favicon: path.resolve(__dirname, 'public', 'favicon.png'),
             }),
             new MiniCssExtractPlugin({
                 filename: isDevelopment ? '[name].bundle.css' : `static/css/_[name].[${hash}].bundle.css`,

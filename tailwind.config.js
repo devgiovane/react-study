@@ -10,6 +10,10 @@ module.exports = {
                 roboto: [ 'Roboto', 'sans-serif' ]
             }
         },
+        container: {
+            center: true,
+            padding: '10rem'
+        }
     },
     plugins: [],
 }

@@ -3,10 +3,10 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 import { Spin } from "~@Components/Loader";
 import { separate } from "~@Services/classname";
 
-type ButtonProps = {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     isLoading?: boolean,
     children: ReactNode
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+}
 
 export function Button({ children, className, isLoading, ...rest }: ButtonProps) {
     return (

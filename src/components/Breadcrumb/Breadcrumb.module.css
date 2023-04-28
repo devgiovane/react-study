@@ -1,0 +1,8 @@
+:local .item:not(:first-child) {
+    padding-left: .8rem;
+}
+
+:local .item:not(:last-child)::after {
+    content: ">";
+    padding-left: .8rem;
+}

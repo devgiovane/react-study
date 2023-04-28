@@ -63,6 +63,8 @@ export function Auth() {
         <section className='flex justify-center pt-28'>
             <Title text='Pokemon | Login' />
             <form
+                role='form'
+                aria-label='Login'
                 onBlur={clearErrors}
                 onSubmit={submitDefault}
                 className='w-10/12 sm:w-8/12 md:w-6/12 lg:w-4/12 xl:w-3/12'

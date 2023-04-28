@@ -6,7 +6,7 @@ export function Menu() {
         <nav
             aria-label="Global"
             className={separate([
-                'flex justify-between',
+                'h-full flex justify-between items-center',
                 'text-xl text-gray-400'
             ])}
         >

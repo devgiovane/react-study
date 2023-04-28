@@ -6,7 +6,7 @@ type SectionType = {
 
 export function Section({ children }: SectionType) {
     return(
-        <section className='w-full pt-24'>
+        <section className='container w-full pt-28'>
             {children}
         </section>
     )

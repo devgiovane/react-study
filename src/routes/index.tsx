@@ -13,6 +13,11 @@ const List = lazy(() =>
         default: module.List
     }))
 );
+const Favorite = lazy(() =>
+    import(/* webpackPrefetch: true */"~@Pages/favorite").then(module => ({
+       default: module.Favorite
+    }))
+);
 
 export function ProjectRoutes() {
     return(
@@ -21,6 +26,7 @@ export function ProjectRoutes() {
                 <Route path="/" element={<Validate/>}>
                     <Route index element={<Home/>}/>
                     <Route path="/list" element={<List/>}/>
+                    <Route path='/favorite' element={<Favorite />}/>
                 </Route>
                 <Route path="*" element={<Navigate to="/" replace />}/>
             </Routes>

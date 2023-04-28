@@ -11,10 +11,11 @@ export function MenuItem({ text, path }: MenuItemProps) {
         <NavLink
             to={path}
             className={({ isActive }) => clsx(separate([
-                'px-2', 'hover:text-white',
+                'px-4 h-full flex items-center',
+                'hover:text-white',
                 'transition-colors duration-150 ease-in-out'
             ]), {
-               'text-white' : isActive
+               'text-white border-b-2 border-b-blue-500' : isActive
             })}
         >
             {text}
