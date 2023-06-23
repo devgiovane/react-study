@@ -1,7 +1,7 @@
 import PikachuLogo from '~@Assets/pikachu.png';
 
-import {memo, SyntheticEvent, useCallback, useMemo} from "react";
 import { Link } from "react-router-dom";
+import { memo, SyntheticEvent, useCallback, useMemo } from "react";
 
 import { Menu } from "~@Template/menu";
 import * as Storage from "~@Services/storage";
