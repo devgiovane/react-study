@@ -1,29 +1,13 @@
-import PikachuLogo from '~@Assets/pikachu.png';
-
+import { memo } from "react";
 import { Link } from "react-router-dom";
-import { memo, SyntheticEvent, useCallback, useMemo } from "react";
+
+import { User } from "./user";
 
 import { Menu } from "~@Template/menu";
-import * as Storage from "~@Services/storage";
 import { separate } from "~@Services/classname";
-import { UserType } from "~@Services/firebase/authenticate";
 
-const user = Storage.getObject<UserType>('user');
 
-export const Header = memo(function () {
-
-    const getSourceImage = useMemo(function () {
-        if (!user.photoURL) {
-            return PikachuLogo;
-        }
-        return user.photoURL;
-    }, [ ]);
-
-    const validateSourceImage = useCallback(function (event: SyntheticEvent) {
-        const target = event.target as HTMLImageElement;
-        target.src = PikachuLogo;
-    }, [ ]);
-
+export const Index = memo(function () {
     return(
         <header
             className={separate([
@@ -48,14 +32,7 @@ export const Header = memo(function () {
                         favorite
                     </span>
                 </Link>
-                <img
-                    width={56}
-                    height={56}
-                    src={getSourceImage}
-                    onError={validateSourceImage}
-                    alt='User Photo'
-                    className='p-1 block rounded-full cursor-pointer border-2 border-white'
-                />
+                <User />
             </div>
         </header>
     );
