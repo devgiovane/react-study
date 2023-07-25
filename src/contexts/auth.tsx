@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 
-import * as StorageService from "~@Services/storage";
+import { LocalStorage } from "~@Services/storage/LocalStorage";
+import { ILocalStorage } from "~@Services/storage/ILocalStorage";
 
 type AuthContextType = {
     token: string|null,
@@ -20,15 +21,16 @@ type AuthProviderProps = {
     children: ReactNode
 }
 
+const localStorage: ILocalStorage = new LocalStorage();
 export function AuthProvider({ children }: AuthProviderProps) {
-    const [ token, setToken ] = useState(StorageService.get('token'));
+    const [ token, setToken ] = useState(localStorage.get('token'));
     function setNewToken(token: string) {
         setToken(token);
         if (token) {
-            StorageService.set('token', token);
+            localStorage.set('token', token);
             return;
         }
-        StorageService.clear();
+        localStorage.clear();
     }
     return(
         <AuthContext.Provider value={{

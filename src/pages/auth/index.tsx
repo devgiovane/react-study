@@ -1,5 +1,5 @@
-import Logo from '~@Assets/logo.svg';
-import GoogleLogo from '~@Assets/google.svg';
+import Logo from '~@Assets/images/logo.svg';
+import GoogleLogo from '~@Assets/images/google.svg';
 
 import { useRef, useReducer, FormEvent } from "react";
 
@@ -7,10 +7,13 @@ import { useAuth } from "~@Contexts/auth";
 import { Title } from "~@Components/Title";
 import { Button } from "~@Components/Button";
 import * as Input from "~@Components/Input";
-import { setObject } from "~@Services/storage";
+import { LocalStorage } from "~@Services/storage/LocalStorage";
+import { ILocalStorage } from "~@Services/storage/ILocalStorage";
 import { loginWith, loginWithGoogle } from "~@Services/firebase/authenticate";
 
 import { loginReducer, initialState, LoginActionKind } from './reducer/login';
+
+const localStorage: ILocalStorage = new LocalStorage();
 
 export function Auth() {
     const { setToken } = useAuth();
@@ -22,7 +25,7 @@ export function Auth() {
         try {
             dispatch({ type: LoginActionKind.SET_LOADING });
             const user = await loginWith(email, password);
-            setObject('user', user);
+            localStorage.setObject('user', user);
             setToken(user.uid);
         } catch (error) {
             dispatch({
@@ -36,7 +39,7 @@ export function Auth() {
     async function loginWithGoogleProvider() {
         try {
             const user = await loginWithGoogle();
-            setObject('user', user);
+            localStorage.setObject('user', user);
             setToken(user.uid);
         } catch (error) {
             dispatch({

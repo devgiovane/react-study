@@ -7,7 +7,7 @@
     "license": "MIT",
     "type": "commonjs",
     "scripts": {
-        "start": "webpack serve --env mode=development",
+        "dev": "webpack serve --env mode=development",
         "build": "yarn clean && webpack --env mode=production && yarn size",
         "clean": "rm -rf dist/",
         "size": "du -hs dist/"

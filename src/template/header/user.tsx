@@ -1,13 +1,15 @@
-import PikachuLogo from "~@Assets/pikachu.png";
+import PikachuLogo from "~@Assets/images/pikachu.png";
 
 import { SyntheticEvent, useCallback, useMemo, useState } from "react";
 
 import { useAuth } from "~@Contexts/auth";
-import * as Storage from "~@Services/storage";
 import * as Dropdown from "~@Components/Dropdown";
+import { LocalStorage } from "~@Services/storage/LocalStorage";
+import { ILocalStorage } from "~@Services/storage/ILocalStorage";
 import { UserType } from "~@Services/firebase/authenticate";
 
-const user = Storage.getObject<UserType>('user');
+const localStorage: ILocalStorage = new LocalStorage();
+const user = localStorage.getObject<UserType>('user');
 
 export function User() {
     const { setToken } = useAuth();

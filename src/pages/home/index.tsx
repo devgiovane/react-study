@@ -1,10 +1,14 @@
 import { Title } from "~@Components/Title";
 import { Section } from "~@Template/section";
-import * as Storage from "~@Services/storage";
-import * as DateService from "~@Services/date";
+import { LocalStorage } from "~@Services/storage/LocalStorage";
+import { ILocalStorage } from "~@Services/storage/ILocalStorage";
+import { DateManager } from "~@Services/date/DateManager";
+import { IDateManager } from "~@Services/date/IDateManager";
 import { UserType } from "~@Services/firebase/authenticate";
 
-const user = Storage.getObject<UserType>('user');
+const dateManager: IDateManager = new DateManager();
+const localStorage: ILocalStorage = new LocalStorage();
+const user = localStorage.getObject<UserType>('user');
 
 export function Home() {
     return(
@@ -22,7 +26,7 @@ export function Home() {
                 </hgroup>
                 <hgroup className='flex flex-col items-end'>
                     <h2 className='text-white text-2xl'>
-                        {DateService.format(new Date(), { day: '2-digit', month: 'long' })}
+                        {dateManager.format(new Date(), { day: '2-digit', month: 'long' })}
                     </h2>
                     <p className='text-gray-300 text-xl'>
                         Have a good day.
